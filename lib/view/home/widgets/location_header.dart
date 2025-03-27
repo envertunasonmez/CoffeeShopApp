@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class LocationHeader extends StatelessWidget {
   final Size size;
-  const LocationHeader({required this.size, Key? key}) : super(key: key);
+  const LocationHeader({required this.size, super.key});
 
   @override
   Widget build(BuildContext context) {
