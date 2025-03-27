@@ -1,6 +1,5 @@
-import 'package:coffee_shop_app/product/constants/asset_constants.dart';
-import 'package:coffee_shop_app/product/constants/color_constants.dart';
-import 'package:coffee_shop_app/product/constants/string_constants.dart';
+import 'package:coffee_shop_app/view/home/widgets/location_header.dart';
+import 'package:coffee_shop_app/view/home/widgets/promo_card.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -10,47 +9,25 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Column(
+      body: Stack(
         children: [
-          Container(
-            width: double.infinity,
-            height: size.height * 0.35,
-            decoration: BoxDecoration(color: ColorConstants.blackColor),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 20.0, top: 80),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    StringConstants.location,
-                    style: TextStyle(
-                      color: ColorConstants.lightGreyColor,
-                      fontSize: 12,
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  Row(
-                    children: [
-                      Text(
-                        StringConstants.newYork,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                        ),
-                      ),
-                      SizedBox(width: 4),
-                      ImageIcon(
-                        AssetImage(AssetConstants.iconDropDown),
-                        color: ColorConstants.whiteColor,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+          Column(
+            children: [
+              LocationHeader(size: size),
+            ],
+          ),
+          Positioned(
+            top: size.height * 0.29,
+            left: 18,
+            right: 18,
+            child: PromoCard(size: size),
           ),
         ],
       ),
     );
   }
 }
+
+
+
+
